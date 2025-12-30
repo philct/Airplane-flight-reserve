@@ -6,4 +6,5 @@ app_name = 'flights'
 urlpatterns = [
     path('', views.index, name='index'),
     path('<int:flight_id>', views.details, name='details'),
+    path('<int:flight_id>/add', views.add, name='add'),
 ]

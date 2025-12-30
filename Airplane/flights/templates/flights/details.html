@@ -10,5 +10,14 @@
         <li> Destination: {{ flight.destination }} </li>
         <li> Duration: {{ flight.length }}hrs </li>
     </ul>
+    <hr>
+    <h1>Passengers for flight {{ flight.id }}</h1>
+    <h2>Passengers info: </h2>
+    <ul>
+        {% for passenger in passengers %}
+            <li>{{ passenger }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'flights:add' flight.id %}">Add passengers</a>
     <a href="{% url 'flights:index' %}"> All Flights </a>
 {% endblock content %}

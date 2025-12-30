@@ -1,0 +1,20 @@
+{% extends "flights/layout.html" %}
+
+{% block title %} Add Passengers {% endblock title %}
+
+{% block content %}
+    <h2>Add Passengers: </h2>
+    <form action="{% url 'flights:add' flight.id %}" method='post'>
+        {% csrf_token %}
+        <select name="non_passenger" id="passenger_select">
+            {% for passenger in non_passengers %}
+                <option value="{{passenger.id}}">{{passenger.first_name}}  {{passenger.last_name}}</option>
+            {% empty %}
+                <option disabled>No passenger avialable.</option>
+            {% endfor %}
+        </select>
+        <button type='submit' >Add passenger</button>
+    </form>
+    <a href="{% url 'flights:index' %}">All Flights</a>
+    <a href="{% url 'flights:details' flight.id %}"> Back to the flight </a>
+{% endblock content %}
