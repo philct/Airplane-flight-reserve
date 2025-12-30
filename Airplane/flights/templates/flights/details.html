@@ -1,0 +1,14 @@
+{% extends "flights/layout.html" %}
+
+{% block title %} Flight {{ flight.id }} {% endblock title %}
+
+{% block content %}
+    <h1>Flight {{ flight.id }}</h1>
+    <h2> Flight details: </h2>
+    <ul>
+        <li> Origin: {{ flight.origin }} </li>
+        <li> Destination: {{ flight.destination }} </li>
+        <li> Duration: {{ flight.length }}hrs </li>
+    </ul>
+    <a href="{% url 'flights:index' %}"> All Flights </a>
+{% endblock content %}
