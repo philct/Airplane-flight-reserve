@@ -4,5 +4,12 @@
 
 {% block content %}
     <h1>Welcome!</h1>
+    <ul>
+        {% for flight in flights %}
+            <li> Flight {{ flight.id }}: {{ flight.origin }} to {{ flight.destination }} </li>
+        {% empty %}
+            <li>There are no flights that are avialable.</li>
+        {% endfor %}
+    </ul>
 
 {% endblock content %}
